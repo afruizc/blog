@@ -1,0 +1,10 @@
+ruizandr.es {
+    root /home/kazlu/sites/personal
+    tls email@gmail.com
+    redir /blog /blog/
+}
+
+ruizandr.es/blog/  {
+    root /home/kazlu/sites/blog
+    tls email@gmail.com
+}

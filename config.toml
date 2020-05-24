@@ -1,0 +1,7 @@
+baseURL = "https://ruizandr.es/blog/"
+languageCode = "en-us"
+pygmentsCodefences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsStyle = "dracula"
+summaryLength = 50
+title = "Talking Computers"

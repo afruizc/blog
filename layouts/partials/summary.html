@@ -1,0 +1,14 @@
+	<article class="blog-entry">
+		<div class="blog-entry__title">
+			<h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+			<time>{{ .Date.Format "02 Jan 2006" }}</time>
+		</div>
+		<div>
+			<p>
+				{{ .Summary }}
+				{{ if .Truncated}}
+					<a href="{{ .Permalink }}">Read&nbsp;more...</a>
+				{{ end }}
+			</p>
+		</div>
+	</article>
