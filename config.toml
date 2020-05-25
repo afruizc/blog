@@ -3,5 +3,5 @@ languageCode = "en-us"
 pygmentsCodefences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsStyle = "dracula"
-summaryLength = 50
+summaryLength = 30
 title = "Talking Computers"
