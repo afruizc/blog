@@ -4,12 +4,6 @@ date: 2020-05-25
 slug: deploying-phoenix-liveview
 ---
 
-This is the steps I took to deploy a [Phoenix] app[1] that uses
-[LiveView] to achieve real time communication.
-
-[Phoenix]: https://hexdocs.pm/phoenix/overview.html
-[LiveView]: https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html
-
 **Note:** The app is running on at https://ruizandr.es/hateball.
 
 ### Deploying
@@ -79,3 +73,5 @@ route /hateball/* {
 - https://en.wikipedia.org/wiki/Cards_Against_Humanity
 - https://hexdocs.pm/phoenix/deployment.html
 - https://github.com/afruizc/hateball
+- https://hexdocs.pm/phoenix/overview.html
+- https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html
