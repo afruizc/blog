@@ -7,7 +7,7 @@ slug: when-does-education-stop
 _I found this really nice piece and decided to plagiarize it here.
 I invite you all to read it:_
 
-[My traducción al Español](todo). 
+[Mi traducción al Español](/blog/cuando-para-la-educaci%C3%B3n/). 
 
 When does education stop?
 
