@@ -25,7 +25,7 @@ Sus reproches me irritaban, y sin pensarlo dos veces puse en frente de
 La misma había sido usada en mi cuando me estaba quejando con un
 capellán en Guadalcanal. Decía:
 
-{{< resource url="img/michener-card.gif" >}}
+![example](/blog/img/michener-card.gif)
 
 (Joven, tu triste historia es realmente desgarradora. Perdóname mientras
 te traigo una toalla para secar lágrimas.)

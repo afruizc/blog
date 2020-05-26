@@ -148,6 +148,14 @@ h1, h2, h3 {
     margin-top: 2.0rem;
 }
 
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
 hr {
     color: #FFFFFF;
     margin: 2rem .3rem;

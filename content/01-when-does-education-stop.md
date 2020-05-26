@@ -22,7 +22,7 @@ His whimpering irritated me, and on the spur of the moment I shoved at him a car
 famous in World War II. It was once used on me while I was 'bitching' to a chaplain on Guadalcanal.
 It read:
 
-{{< resource url="img/michener-card.gif" >}}
+![example](/blog/img/michener-card.gif)
 
 My complaining visitor reacted as I had done twenty years earlier. He burst into laughter
 and asked, 'Did I sound that bad?'

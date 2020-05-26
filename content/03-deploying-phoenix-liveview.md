@@ -1,6 +1,6 @@
 ---
 title: Deploying Phoenix Liveview with HTTPS
-date: 2020-05-25
+date: 2020-05-20
 slug: deploying-phoenix-liveview
 ---
 
