@@ -5,3 +5,8 @@ pygmentsCodefencesGuessSyntax = true
 pygmentsStyle = "dracula"
 summaryLength = 30
 title = "Talking Computers"
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true

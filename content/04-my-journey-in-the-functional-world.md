@@ -1,16 +1,18 @@
 ---
-title: My journey through the functional world
+title: My journey in the functional world
 date: 2020-05-25
 slug: journey-functional-world
+draft: true
 ---
 
-This quarantine has been a great opportunity to educate myself.
-Once shit hit the fan, I decided it was time.
+This quarantine has been a great opportunity to educate
+myself. I've been learning about functional
+programming, and I wanted to share my experiences.
 
-I chose functional programming because I am fascinated by the
-idea getting a grip on the state of your programs. Before I
-dive in, the following two videos really helped me get in
-the _functional groove_.
+I chose FP because I was excited by the prospect of
+making application state more manageable. Before diving
+in, I'd like to refer you to either of the following videos.
+They helped me get in the _functional groove_.
 
 - https://www.youtube.com/watch?v=0if71HOyVjY
 - https://www.youtube.com/watch?v=E8I19uA-wGY
@@ -18,46 +20,41 @@ the _functional groove_.
 
 ## Basic concepts
 
-There are two basic components of functional programming:
-functions and immutability.
+There are two core components of functional programming:
+_functions_ and _immutability_.
 
 ### Functions
 
-In the book [Principia Mathematica], the authors prove that 
-`1 + 1 = 2` on page 378 as it's illustrated in the following
-picture.
+Mathematicians have been making heavy use of functions
+for at least a century. 
 
-![example](/blog/img/michener-card.gif)
+In the book [Principia Mathematica](https://en.wikipedia.org/wiki/Principia_Mathematica),
+Whitehead and Russel provide the (in)famous 
+proof of `1 + 1 = 2`.  
 
-It took the authors 378 pages of complex abstractions to
-prove something as seemingly simple as `1 + 1 = 2`. It makes
-me think about my manager saying: _“it’s just a new character,
-how hard can it be”_.
+![example](/blog/img/proof.png)
 
-One of the fundamental constructs used to get to this proof
-was the function. The fact that the function was so well suited
-for Russel & Other[TODO: other] is indicative of it's potential
-as a unit used to organize complex structures.
+As you can see, it appears on page 379. It took the authors
+379 pages to build a solid foundation for this
+proof to rest on. At the core of this foundation lay
+functions.
 
-Simply put, a function is a transformation. It's a way of turning
-inputs into outputs. We've all seen functions before.
-Some languages are strict when it comes to their definition
-of functions. 
+A function is a transformation. It's a way of turning
+inputs into outputs. We've all seen functions before. However
+not all functions are made equal. As we'll see later,
+some functions *are* functions, some other look more 
+like procedures [<span id="footnote-procedures-ref">[️1](#footnote-procedures)</span>].
+
 
 ### Immutability
 
-State is inevitable. So our best hope is to make it more
-manageable. One way is to ensure all state that flows
-through our code is immutable. In practice
-this means all of your lists, dicts/maps and tuples will
-be immutable. 
+State is inevitable. Our best hope is to make it more
+manageable. One way is to ensure immutability. This means
+all of your lists, dicts/maps and tuples will be append-only. 
+All non-query operations return a new copy.
 
-Operations like append and delete always create a new copy
-of the original data structure.
-
-With these restrictions in mind, functional programming
-languages optimize their usage of data structures to
-account for their immutability.
+With these restrictions, functional languages make
+optimizations to work with immutability.
 
 ## The journey
 
@@ -66,7 +63,7 @@ I installed racket, went through some tutorials and got a
 basic sense for what it was to program in a purely functional
 language. I got distracted with life and eventually stopped.
 
-Far forward to March, and I am looking once again at all
+Fast forward to March, and I am looking once again at all
 my options.
 
 ### Haskell
@@ -74,14 +71,12 @@ my options.
 In my day job I write python. Bruised and scarred from the
 lack of types I wanted to stay away from dynamic languages.
 After some research, I narrowed down my choices to Haskell
-and Elm. At the end I chose Haskell. I could go into reasons
-why, but I don't think these reasons matter. What matters is
-picking something and following through.
+and Elm. At the end I chose Haskell.
 
 Haskell is what is known as a pure functional language.
-It means that the output of any function only depends
-on its arguments. This design choice is hugely influential
-as it dictates how many things are done in Haskell.
+In Haskell, The output of any function only depends
+on its arguments. Let's see an example to understand purity
+better.
 
 The following way to generate a random number is not pure:
 
@@ -91,7 +86,8 @@ function rand() {
 }
 ```
 
-If instead we did something like
+Given the same parameters (none), it generates
+different numbers every time. If instead we wrote:
 
 ```javascript
 function rand(seed) {
@@ -100,31 +96,34 @@ function rand(seed) {
 }
 ```
 
-then we have a pure function.
+The results of `rand` only dependes on `seed`.
+This is a pure function. If you want to learn more about
+purity and side effects see
+[here](https://stackoverflow.com/questions/22268851/what-is-a-pure-function)
+or [here](https://en.wikipedia.org/wiki/Pure_function).
 
-Similarly, reading/writing from/to IO, running a web server
-or interacting with the OS in any other way are
-inherently impure operations. 
+Purity has huge implications and imposes certain
+restrictions in the way developers write code.
+Reading/writing from/to IO, running a web server
+or opening a port are all impure operations. 
+How does Haskell deal with this?
 
-The way Haskell deal with these impurities is by using a
-framework where all of these operations are first described
-and then passed to the Haskell runtime to be executed. In this way,
-Haskell achieves its purity. Learn more about purity and
-side effects [here](https://en.wikipedia.org/wiki/Pure_function) or
-[here](https://stackoverflow.com/questions/22268851/what-is-a-pure-function).
+Haskell uses an abstraction called [monads](https://stackoverflow.com/a/194207).
+Monads help programmers describe their operations instead
+of executing them directly. These instructions are
+then given to the runtime where they are executed.
 
 I started with
 [H-99: Ninety-Nine Haskell Problems](https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems)
 and reading [LYAH](http://learnyouahaskell.com). I also 
 went through some [lectures from CS192 in Penn State](https://www.cis.upenn.edu/~cis194/spring13/).
 
-I started reconsidering my choices when I needed to generate some
-random numbers in Haskell. Used to the imperative world, I was
-confused by all the "ceremony" that needed to happen
-for me to get a random number. I decided Haskell was nice
-but getting to a point where I would be proficient would
-be a big undertaking. Even though I had really enjoyed my
-time, it was time for me to look somewhere else.
+Used to the imperative world, I was confused by all
+the "ceremony" that needed to happen for me to get
+a random number. Haskell was nice but getting stuff
+done in it was a bit involved. Even though I had
+really enjoyed my time, it was time for me to look
+somewhere else.
 
 My short brush with Haskell had helped me start to internalize
 some fundamental concepts. I'd learned about currying,
@@ -133,22 +132,25 @@ level, what a Functor, a Monad and a Monoid were.
 
 ### Elm
 
-As ELM was a runner up, it was a natural choice. Elm struck me
-as a much simpler yet elegantly designed language. I was very
-pleseantly surprised by `elm/parser` and `elm/browser`.
-In many ways it felt like Elm was a Haskell optimized for
-frontend applications. And by getting those details right, Elm
-seemed like a fantasy to me. I became enamoured by the language. 
+Elm was a natural next choice. It struck me as a much
+simpler yet elegantly designed language. I was
+pleasantly surprised by the APIs in packages like
+`elm/parser` and `elm/browser`. In many ways it felt like
+Elm was a Haskell where the focus was frontend. And
+in line with that focus, many of the details just felt
+right. I grew enamoured by the day. 
 
-The APIs were concise. My very first app was 
+My very first app was 
 [Conway's game of life](https://github.com/afruizc/elmjuegodelavida).
-It helped me learn the "ELM architecture" and how to deal with
-state efficiently. The more ELM I wrote, the more I understood
+It helped me learn the "Elm architecture" and how to deal with
+state efficiently. The more Elm I wrote, the more I understood
 how Haskell had inspired it in many ways.
 
-Through Commands and Subscriptions it manages to get a grip an all
-impure computations and manages to keep all computations pure.
-  
+Elm is pure just like Haskell. Instead of monads, however,
+it uses Commands and Subscriptions to solve the purity problem.
+Commands and Subscriptions are how computations are described
+and given to the Elm Runtime.
+
 My second project was a file viewer for the browser that used VIM
 keys. I called it [linesurfer](https://github.com/afruizc/linesurfer).
 I spend several weeks on this project and realized text editors
@@ -157,41 +159,18 @@ design was the fact that tabs are one char, but when
 displayed take 4 chars.
 
 My next project was a simple [matching game](https://ruizandr.es/matching_game).
-My girlfriend is a teacher and she needed a way to teach colors to her 4 year
-olds. We worked together and made a game where animals and
-colors are paired. Super fun experience working with her.
+My girlfriend is a teacher. With everything going on,
+She needed a way to remotely teach colors to her 4 year old kids.
+We worked together and made a simple matching game for
+animals and colors. Super fun experience working with her.
 
-After about 1 month of ELM, I started to see some things I
-didn't particularly like. There's a very vocal minority in the Elm
-community likes to complain about the way Evan (Elm's creator) does
-things. The way I see it, this is some nice juicy drama, and as
-such it needs people to take sides or at least have an opinion.
-Here's my opinion. [NoRedInk](https://www.noredink.com/) is a
-company where many of the Elm core team works. They pay Evan
-and some other really smart people to maintain Elm, and as
-a consecuence of this, Elm is optimized to be used in NoRedInk.
-This makes is so that it the Elm communitiy the NoRedInk way
-is normally the correct way. This is all good and fine because
-Elm has been open about allowing developers to have workarounds.
-Then came Elm 0.19, and took away the capabilities of interacting
-with bare javascript. The problem was, the core team did not
-have this restrictions and were still able to interop with javascript.
-The Elm team told the world, “Do as we say, not as we do”, and the
-world got pissed. 
+One thing I don't like about Elm is their "Do as I say, not as
+I do" philosophy.
 
-As I said before, I didn’t particularly like this philosophy, but
-as one can attest, most of our parents adhere to the same philosophy.
-Who can really blame them (both our parents and the Elm team). I
-hope that in the future, people work things out, Elm isn't forked,
-and we all live happy and fruitful lives. 
-
-My love for elm has never died down. When I evaluate technologies
-for frontend, I'm always keeping Elm in the radar because it's so
-nice to work with.
-
-While the ELM fantasy lasted, I was very happy. But one day I remembered.
-I was a backend engineer. Frontend was just a means to a goal,
-but my true passion, where I am good at, is working behind the scenes.
+I still really like Elm, and while the fantasy lasted,
+I was very happy. But one day I remembered. I was a backend
+engineer. Frontend was just a means to a goal. My true
+passion, where I am good at, is working behind the scenes.
 Elm could not help me there. So I continued my search.
 
 ### F#
@@ -263,7 +242,7 @@ an actor programming model. Through the use of Agents,
 GenServers and Supervisors, programs that take advantage at
 the highest level of the parallelism present in the system.
 
-# The Future
+## The Future
 
 I have decided my next job will be an elixir Job. I believe
 this language has the potential to be the next Ruby/Python,
@@ -273,9 +252,18 @@ time with my experiences. That said, there is nothing
 more formative that getting your hands dirty and
 exploring all your possibilities. 
 
-# Lessons learned
+## Lessons learned
 
 - Explorations at the frontiers are more valuable as they
 provide radical points of view.
 - The functional paradigm is not at all that 
+- You just need to sit down and do it.
+
+<div class="footer">
+
+<span id="footnote-procedures">1. A procedure in this sense refers to a series
+of steps that don't return a value.
+<a href="#footnote-procedures-ref" title="return to text">&#8617;</a></span> 
+
+</div>
 
