@@ -23,40 +23,6 @@ header a {
     text-decoration: none;
 }
 
-main {
-    margin: 1rem auto;
-    max-width: 75%;
-}
-
-@media only screen and (min-width: 650px) {
-    code {
-        font-size: 1rem;
-    }
-
-    main {
-        width: 600px;
-    }
-}
-
-
-@media only screen and (min-width: 900px) {
-    body {
-        font-size: 18px;
-    }
-
-    main {
-        max-width: 600px;
-    }
-
-    p {
-        text-align: justify;
-    }
-
-    code {
-        font-size: 1rem;
-    }
-}
-
 p {
     margin: 1.2rem 0;
 }
@@ -96,12 +62,17 @@ p code, li code {
 
 .blog-entry__title {
     display: grid;
-    grid-template-areas:
-        "left right";
+    grid-template-areas: "left right";
 }
 
 .blog-entry__title h1 {
     grid-area: left
+}
+
+article time {
+    font-size: .9rem;
+    /*margin-top: 2.3rem;*/
+    /*margin-left: .3rem;*/
 }
 
 .blog-entry__title time {
@@ -111,18 +82,8 @@ p code, li code {
     margin-top: 2.4rem;
 }
 
-.post-content__title {
-    display: flex;
-    flex-direction: column;
-}
 
-.post-content__title time {
-    font-size: .9rem;
-    /*margin-top: 2.3rem;*/
-    /*margin-left: .3rem;*/
-}
-
-article.blog-entry h1 a {
+div.blog-entry h1 a {
     color: #222;
     text-decoration: none;
 }
@@ -164,10 +125,14 @@ hr {
     margin: 2rem .3rem;
 }
 
-img {
+figure img {
     display: block;
     margin: 3rem auto;
-    max-width: 40rem;
+    width: 99vw;
+}
+
+p img {
+    max-width: 18rem;
 }
 
 footer {
@@ -184,4 +149,46 @@ footer {
 
 .footer {
     font-size: .9rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 80% 1fr;
+}
+
+main > * {
+    grid-column: 2;
+}
+
+main > figure {
+    grid-column: 1 / -1;
+}
+
+@media only screen and (min-width: 650px) {
+    main {
+        grid-template-columns: 1fr 600px 1fr;
+    }
+
+    code {
+        font-size: 1rem;
+    }
+}
+
+
+@media only screen and (min-width: 900px) {
+    main {
+        grid-template-columns: 1fr 700px 1fr;
+    }
+
+    body {
+        font-size: 18px;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    code {
+        font-size: 1rem;
+    }
 }

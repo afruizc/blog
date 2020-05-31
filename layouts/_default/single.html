@@ -1,14 +1,9 @@
 {{ partial "header.html" . }}
 	<main>
-		<article class="post-content">
-			<div class="post-content__title">
-				<h1 class="blog-title">{{ .Title }}</h1>
-				<time>{{ .Date.Format "02 Jan 2006" }}</time>
-			</div>
-			<div class="content">
-				{{ .Content }}
-			</div>
-		</article>
+		<h1 class="blog-title">{{ .Title }}</h1>
+		<time>{{ .Date.Format "02 Jan 2006" }}</time>
+
+		{{ .Content }}
 	</main>
 {{ partial "footer.html" . }}
 
