@@ -4,7 +4,7 @@ SOme `var i = 33` code inilie.
 
 ANd some code here
 
-```
+```c
 #include <stdio>
 
 int main() {
