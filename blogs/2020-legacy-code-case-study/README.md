@@ -57,23 +57,12 @@ legacy code.
 ### The future
 
 As Rick had always been informed of what was going on, there was never
-tension or bad surprises. In addition, he was aware of technical debt and
-how software needs to be maintained.
-
-I also learned something important: _taking the initiative and being transparent
+tension or surprises. I made sure always to keep him in the loop, and to
+distill all the information, so he wouldn't get overwhelmed. I
+learned something important: _taking the initiative and being transparent
 fosters trust and avoids future conflict_.
 
-After multiple iterations, Rick and I got into a good working rhythm. Occasionally,
-my changes would break the system, undetected by my testing. I would learn
-exactly what caused the problem from him and would incorporate those steps
-in my manual testing.
-
-There was a lot of opportunity for the code to be improved. At the same time,
-Rick’s business needed to move forward with new features. Refactoring the
-code was a colossal task.
-
-Rick and I eventually stopped working together, but I’m very grateful for
-all our interactions.
-
-
-
+After multiple iterations, Rick and I got into a good working rhythm.
+The system got stabilized, and it's still running in production. We eventually
+stopped working together, but Rick is still out there, and he's still
+running his platform.
