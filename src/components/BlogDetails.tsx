@@ -40,7 +40,7 @@ export default function BlogDetail() {
 
     return <>
         <div style={{marginLeft: '16px'}} className="backToHome">
-            <Link to="/">Home</Link>
+            <Link to="/">&larr; Home</Link>
         </div>
         <div className="blogWrapper">
             <ReactMarkdown>{blogDetails}</ReactMarkdown>
