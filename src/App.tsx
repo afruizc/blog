@@ -8,7 +8,9 @@ function App() {
         <Router>
             <Switch>
                 <Route path="/blogs/:blogName">
-                    <BlogDetail />
+                    <div className="blogWrapper">
+                        <BlogDetail />
+                    </div>
                 </Route>
             </Switch>
 

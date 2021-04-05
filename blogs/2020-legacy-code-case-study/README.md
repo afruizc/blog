@@ -1,84 +1,69 @@
-# People and Legacy Code: A case study
+# Legacy Code: A case study
 
 _Beginner programmers study code. Senior programmers study people._
 
-I met Rick online. He's the owner of a business that runs a subscription-based
-online platform. After a couple of phone calls that were
-challenged by a 9-hour time difference, we decided we liked each other enough
-and got straight to work. I was introduced to the system and the domain, and we
-decided on my first task: changing a date.
+I met Rick online. He runs an online subscription-based business and was
+desperately looking for a programmer. After a couple of phone calls
+we decided we liked each other enough, and got straight to work. I was
+introduced to the system and the domain, and we decided on my first
+task: changing a date.
 
-### Step 0: running the code
+### Running Locally
 
-The system was already deployed in production, so running it should be a walk
-in the park--or so I thought.
+Before anything, I needed to run code. Even though the system was already
+deployed in production, running it locally turned out to be a challenge.
 
 The code was written in python 2.7 and a `requirements.txt` was included. My
-computer being a mac, however, refused to play with the dependencies. With the
-day almost over, I gave up and decided to use docker. It was obvious that the
-application hadn’t been set up for some time. After one more day, I finally
-had a running instance.
+computer, however, refused to play with the dependencies. After many hours of
+frustration I gave up and decided to use docker. It was obvious that the
+application had not been set up for some time. I finally had a running instance 
+and all was good. I changed values, created entities
+and deleted them. I felt uneasy though. I knew a database was being used,
+but I had not set one up yet. Looking into the code I had my first mini-heart
+attack of many to come: we were using the production database.
 
-With the software running, I went to town. I changed values, created entities
-and deleted them. After some time, I felt uneasy though. A database
-was being used, but I hand't set it up. After digging into the code I had my
-first mini-heart attack of many to come: the code used production databases.
+I refused to proceed with this setup and informed Rick of the situation.
+He understood what was at stake, and took my advice. I changed the code and
+used `docker-compose` to spin up local databases.
 
-### Step 0.5: Running locally
+Things were looking good; Everything worked in my machine, and I was ready
+to deploy.
 
-Before proceeding, the system had to run with local databases. I changed the code
-to load different configurations based on an environment variable and used
-`docker-compose` to spin up the databases.
-
-Things were looking good; Everything worked in my machine, and I was pleased.
-All this fidgeting around had taken another full day. After some manual and
-automated testing, I was satisfied and fairly confident my solution would work.
-
-### Step 0.7: Deploying changes
-
-With working code, I was ready to deploy.
+### Deploying changes
 
 When I asked the old developer how he deployed, he said: “just scp the code
-and restart the server”. Thanks pal. I can’t lie to you: when I heard that,
-I was shitting my pants a little bit. All the companies that I’d worked at
-before had automated or semi-automated deploy systems. My experience deploying
-was “push to master” or “press this button”. So, as any decent guy would
-do--although I must admit I was feeling a little bit defeated--I ditched
-`scp` for version control. I `ssh`ed into the server, `git pull`ed the
-code and restarted all python processes. I went to the site and got a 500,
-Server Error. My second mini-heart attack.
+and restart the server”. Thanks pal.
 
-Unbeknownst to me, the server was not started directly, but through a bash
-script that would call the python entrypoint inside an infinite loop. This
-was done so that if the python process died, it would be restarted right away.
-I used this method, and all was good. My changes had been deployed successfully
-and production was not broken. I celebrated with my shake-the-booty dance
-(one of the luxuries of working from home).
+I can’t lie to you, I was shitting my pants a bit. I had always used
+automated or semi-automated deploy systems. My experience deploying
+was “push to master” or “press this button”. Regardless, I was determined.
+
+Just as before, and prior to doing anything, I let Rick know of what was going on.
+I explained to him what deployment was, how it impacted development and how the old developer
+did it. I also suggested a new method for which he had no objections.
+I spent an additional day figuring out this setup.
+
+### Changing the date
 
 Even though all of these were crucial updates, they added zero functionality
-to the application. The first week was up and I hadn’t started with my task.
-I explained to Rick that these were much needed updates--without them, the
-system would crumble. To my own surprise, Rick was welcoming and, at times,
-even happy that I chose to straighten things out before moving forward.
+to the application and 4 days had passed. The first week was almost over,
+and my original task was still not done.
 
-I learned something very important: taking the initiative and being transparent
-fosters trust. I could also proceed to change the date!
+It took me 3 hours to finish off my original task. The final diff was 3 lines
+long and Rick was happy. However, I knew that the future was bleak.
+When a 3-line change takes a week, you realize you are dealing with
+legacy code.
 
-### Step 1: Changing the date
+### The future
 
-At its core, the platform would perform searches for different items on the
-internet, and once found, would email them to customers at a certain date.
-My task was to change the date in which some of these emails were being sent.
-It’s worth mentioning that neither the description of the platform or the
-task came in this form.
+As Rick had always been informed of what was going on, there was never
+tension or bad surprises. In addition, he was aware of technical debt and
+how software needs to be maintained.
 
-It took me 1 additional hour to finish off this task. The diff was 3 lines
-long and Rick was happy. I wasn’t though. I knew that the future was bleak.
-When a 3-line change takes a week, you realize you are dealing with legacy code.
+I also learned something important: _taking the initiative and being transparent
+fosters trust and avoids future conflict_.
 
-### Step 2, 3, …. N: Making changes
-
-After multiple iterations, Rick and I got into a good rhythm. Occasionally,
+After multiple iterations, Rick and I got into a good working rhythm. Occasionally,
 my changes would break the system, undetected by my testing. I would learn
 exactly what caused the problem from him and would incorporate those steps
 in my manual testing.
