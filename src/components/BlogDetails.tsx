@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import ReactMarkdown from 'react-markdown/with-html';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Empty } from 'antd';
 import { ENTRIES } from '../constants';
+import ReactMarkdown from 'react-markdown/with-html';
+import './BlogDetails.scss';
+
 
 function getBlogContentsUrl(url: string): string {
     return `${url}/README.md`;
@@ -36,5 +38,12 @@ export default function BlogDetail() {
         return <Empty description="Nothing here"/>;
     }
 
-    return <ReactMarkdown>{blogDetails}</ReactMarkdown>;
+    return <>
+        <div style={{marginLeft: '16px'}} className="backToHome">
+            <Link to="/">Home</Link>
+        </div>
+        <div className="blogWrapper">
+            <ReactMarkdown>{blogDetails}</ReactMarkdown>
+        </div>
+    </>;
 }

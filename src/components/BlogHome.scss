@@ -1,0 +1,19 @@
+@import '../styles/shared';
+
+.homeWrapper {
+  @media screen and (max-width: $small) {
+    min-width: 256px;
+  }
+
+  @media screen and (min-width: $medium) {
+    min-width: 640px;
+  }
+}
+
+h1 {
+  margin-top: 16px;
+}
+
+.homeWrapper a {
+  font-size: 18px;
+}

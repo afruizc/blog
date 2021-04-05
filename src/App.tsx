@@ -1,16 +1,18 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import BlogDetail from './components/BlogDetails';
+import BlogHome from './components/BlogHome';
 
 function App() {
     return (
-        <Router>
+        <Router basename="/">
             <Switch>
                 <Route path="/blogs/:blogName">
-                    <div className="blogWrapper">
-                        <BlogDetail />
-                    </div>
+                    <BlogDetail />
+                </Route>
+                <Route path="/">
+                    <BlogHome />
                 </Route>
             </Switch>
 
