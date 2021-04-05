@@ -2,7 +2,7 @@
 
 .homeWrapper {
   @media screen and (max-width: $small) {
-    min-width: 256px;
+    width: 256px;
   }
 
   @media screen and (min-width: $medium) {
