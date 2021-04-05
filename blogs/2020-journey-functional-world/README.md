@@ -8,8 +8,8 @@ programming, and I wanted to share some of my thoughts.
 Before jumping in, I recomment watching either of the following videos
 in order to get in the _functional groove_.
 
-- https://www.youtube.com/watch?v=0if71HOyVjY
-- https://www.youtube.com/watch?v=E8I19uA-wGY
+- [FP in 40 minutes](https://www.youtube.com/watch?v=0if71HOyVjY).
+- [FP design patterns](https://www.youtube.com/watch?v=E8I19uA-wGY).
 
 ### Functions and immutability
 
