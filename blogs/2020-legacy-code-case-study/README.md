@@ -10,7 +10,7 @@ task: changing a date.
 
 ### Running Locally
 
-Before anything, I needed to run code. Even though the system was already
+Before anything, I needed to run the code. Even though the system was already
 deployed in production, running it locally turned out to be a challenge.
 
 The code was written in python 2.7 and a `requirements.txt` was included. My
