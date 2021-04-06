@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ENTRIES } from '../constants';
 import { capitalizeStr } from '../utils';
+import { TwitterOutlined } from '@ant-design/icons';
 import './BlogHome.scss';
+import { Button } from 'antd';
+
 
 interface EntryDisplayData {
     displayName: string
@@ -40,5 +43,15 @@ export default function BlogHome() {
                     {entry.displayName}</Link>
             </p>;
         })}
+
+        <footer>
+            <Button style={{
+                color: '#fafafa',
+                fontSize: '16px',
+            }} type="text" icon={<TwitterOutlined/>}
+                    href="https://twitter.com/greenlukaz" target="_blank">
+                Get in touch
+            </Button>
+        </footer>
     </div>;
 }

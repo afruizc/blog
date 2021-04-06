@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Empty } from 'antd';
+import { Button, Empty } from 'antd';
 import { ENTRIES } from '../constants';
 import ReactMarkdown from 'react-markdown/with-html';
 import './BlogDetails.scss';
+import { TwitterOutlined } from '@ant-design/icons';
 
 
 function getBlogContentsUrl(url: string): string {
@@ -39,11 +40,20 @@ export default function BlogDetail() {
     }
 
     return <>
-        <div style={{marginLeft: '16px'}} className="backToHome">
+        <div style={{ marginLeft: '16px' }} className="backToHome">
             <Link to="/">&larr; Home</Link>
         </div>
         <div className="blogWrapper">
             <ReactMarkdown>{blogDetails}</ReactMarkdown>
         </div>
+        <footer>
+            <Button style={{
+                color: '#fafafa',
+                fontSize: '16px',
+            }} type="text" icon={<TwitterOutlined/>}
+                    href="https://twitter.com/greenlukaz" target="_blank">
+                Get in touch
+            </Button>
+        </footer>
     </>;
 }

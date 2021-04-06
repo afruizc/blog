@@ -1,6 +1,6 @@
 # My Journey through the functional world
 
-Despite in a world-wide pandemic, this time at home
+Despite being in a world-wide pandemic, this time at home
 has been great for personal growth. I learned a bit of woodworking, painting
 and cooking. I also learned about functional programming, and I wanted to
 share some of my thoughts.
@@ -30,7 +30,7 @@ Now that we have a grasp on these two concepts, let's start.
 ### Haskell
 
 In my day job I write Python. Bruised and scarred, I wanted to stay away from dynamic
-languages. I narrowed down my choices to Haskell and Elm. I like writing frontend, but I
+languages. I narrowed down my choices to Haskell and Elm. I
 was in search of a general programming language, so I chose Haskell.
 
 Haskell is a pure functional language. In this context, purity means the output of a function
@@ -127,7 +127,7 @@ my experience, types make everything better. Despite this, I still gave the
 language a try. What finally pushed me over the edge 
 was [this video](https://www.youtube.com/watch?v=MZvmYaFkNJI&t=573s). In it, one of the 
 creators of Phoenix, Elixir's main web framework, demonstrates how to create a
-twitter clone in less than 10 minutes with 0 javascript. My mind was blow.
+twitter clone in less than 10 minutes with zero javascript. My mind was blow.
 
 In addition to being a functional language, Elixir runs on top of the Erlang VM.
 This makes Elixir's concurrency story perfectly suited for the complex

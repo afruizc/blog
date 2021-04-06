@@ -8,6 +8,18 @@
   @media screen and (min-width: $medium) {
     min-width: 640px;
   }
+
+  footer {
+    bottom: 0;
+    background-color: #141414;
+    color: #fafafa;
+    left: 0;
+    padding: 6px 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+  }
+
 }
 
 h1 {

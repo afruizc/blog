@@ -6,17 +6,18 @@ import BlogHome from './components/BlogHome';
 
 function App() {
     return (
-        <Router basename="/">
-            <Switch>
-                <Route path="/blogs/:blogName">
-                    <BlogDetail />
-                </Route>
-                <Route path="/">
-                    <BlogHome />
-                </Route>
-            </Switch>
-
-        </Router>
+        <>
+            <Router basename="/">
+                <Switch>
+                    <Route path="/blogs/:blogName">
+                        <BlogDetail />
+                    </Route>
+                    <Route path="/">
+                        <BlogHome />
+                    </Route>
+                </Switch>
+            </Router>
+        </>
   );
 }
 
