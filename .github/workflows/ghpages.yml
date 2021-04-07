@@ -22,7 +22,8 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          external_repository: green-john/green-john.github.io
           publish_dir: ./build
           publish_branch: main
           cname: greenlukaz.com
